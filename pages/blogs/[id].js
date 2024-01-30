@@ -10,6 +10,11 @@ const SinglePost = () => {
   const { id } = router.query
   const post = blogdata.find((post) => post.id === parseInt(id))
 
+  if (!post) {
+    // Handle the case where post is undefined (e.g., show a loading message or redirect)
+    return <p>Loading...</p>;
+  }
+
   return (
     <>
       <Head>
